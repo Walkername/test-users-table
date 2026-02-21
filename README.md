@@ -1,16 +1,69 @@
-# React + Vite
+# Test Users Table
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Это тестовое React-приложение для отображения таблицы пользователей с расширенной функциональностью сортировки, фильтрации и просмотра деталей.
 
-Currently, two official plugins are available:
+## Технологии
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **JavaScript**
+* **React**
+* **HTML & CSS**
 
-## React Compiler
+## Описание задания
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+Приложение отображает таблицу с информацией о пользователях, полученной через API [DummyJSON Users](https://dummyjson.com/docs/users). Таблица содержит следующие колонки:
 
-## Expanding the ESLint configuration
+* Фамилия
+* Имя
+* Отчество
+* Возраст
+* Пол
+* Номер телефона
+* Email
+* Страна
+* Город
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Основные возможности
+
+1. **Сортировка по полям**:
+
+   * ФИО, возраст, пол, номер телефона
+   * Три состояния сортировки: по возрастанию, по убыванию, без сортировки
+
+2. **Ширина таблицы**:
+
+   * 100% от экрана пользователя
+   * Максимальная ширина: 1400px
+
+3. **Работа с HTTP-запросами через Fetch API**:
+
+   * Получение данных пользователей
+   * Сортировка данных через соответствующие параметры API
+
+### Дополнительные возможности
+
+* **Фильтрация по выбранным полям**
+* **Постраничная навигация пользователей**
+* **Модальное окно с подробной информацией** по клику на строку таблицы:
+  * ФИО, возраст, адрес, рост, вес, номер телефона, email, аватар
+* **Обработка ошибок HTTP-запросов**
+* **Изменяемая ширина колонок таблицы** (минимальная ширина — 50px)
+
+## Установка и запуск
+
+1. Клонировать репозиторий:
+
+```bash
+git clone https://github.com/Walkername/test-users-table.git
+```
+
+2. Установить зависимости:
+
+```bash
+npm install
+```
+
+3. Запустить приложение:
+
+```bash
+npm start
+```
