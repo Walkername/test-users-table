@@ -2,13 +2,14 @@
   "name": "users-table",
   "private": true,
   "version": "1.0.0",
-  "homepage": "https://walkername.github.io/users-table",
+  "homepage": "https://walkername.github.io/test-users-table",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^19.2.0",
