@@ -12,11 +12,13 @@ export function useUsers({
 }) {
     const [users, setUsers] = useState([]);
     const [total, setTotal] = useState(0);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchUsers = async () => {
             try {
+                setLoading(true);
                 setError(null);
 
                 const skip = (page - 1) * limit;
@@ -36,7 +38,6 @@ export function useUsers({
                     params.append("value", filter.value);
                 }
 
-                // 🔄 SORT
                 if (sortField && sortOrder) {
                     params.append("sortBy", sortField);
                     params.append("order", sortOrder);
@@ -55,11 +56,13 @@ export function useUsers({
                 setTotal(data.total);
             } catch (err) {
                 setError(err.message);
+            } finally {
+                setLoading(false);
             }
         };
 
         fetchUsers();
     }, [page, limit, sortField, sortOrder, search, filter.key, filter.value]);
 
-    return { users, total, error };
+    return { users, total, loading, error };
 }

@@ -26,7 +26,7 @@ function App() {
 
     const debouncedSearch = useDebounce(search, 500);
 
-    const { users, total, error } = useUsers({
+    const { users, total, loading, error } = useUsers({
         page,
         limit,
         sortField,
@@ -88,15 +88,25 @@ function App() {
                 onReset={handleReset}
             />
 
-            {error && <div className="error">{error}</div>}
+            {error && !loading && <div className="error">{error}</div>}
 
-            <UserTable
-                users={users}
-                sortField={sortField}
-                sortOrder={sortOrder}
-                onSort={handleSort}
-                onRowClick={setSelectedUser}
-            />
+            <div className="table-container">
+                {loading ? (
+                    <div className="loader-wrapper">
+                        <div className="loader visible">
+                            <div className="spinner"></div>
+                        </div>
+                    </div>
+                ) : (
+                    <UserTable
+                        users={users}
+                        sortField={sortField}
+                        sortOrder={sortOrder}
+                        onSort={handleSort}
+                        onRowClick={setSelectedUser}
+                    />
+                )}
+            </div>
 
             <Pagination
                 page={page}
